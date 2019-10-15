@@ -49,10 +49,28 @@
             </div>
         </form>
 
-        <div class="text-right text-giant">$300</div>
+        <div class="text-right text-giant total">$300</div>
     </div>
 
     <script>
+        //grab everything
+        const priceInput = document.querySelector("[name=price]");
+        const quantityInput = document.querySelector("[name=quantity]");
+        const total = document.querySelector(".total");
+
+
+        //add event listeners
+        priceInput.addEventListener("input", calculateCarCost);
+
+
+        //create the functions
+
+        function calculateCarCost() {
+            const price = priceInput.value;
+            const quantity = quantityInput.value;
+            const totalCost = price * quantity;
+            total.innerText = "$" + totalCost;
+        }
     </script>
 </body>
 
